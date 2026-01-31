@@ -8,6 +8,8 @@
       name="description"
       content="Southern Arizona Marketing Systems helps rural businesses connect with clients using AI agents and workflow tools."
     />
+    <meta name="theme-color" content="#1f2933" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0f14" media="(prefers-color-scheme: dark)" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,32 +20,37 @@
     <script defer src="script.js"></script>
   </head>
   <body>
-    <header class="site-header">
-      <nav class="nav">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <!-- Header / Navigation -->
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="Primary">
         <a class="brand" href="#top">Southern Arizona Marketing Systems</a>
-        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
           <span class="sr-only">Toggle navigation</span>
           <span class="nav-toggle__bar"></span>
           <span class="nav-toggle__bar"></span>
           <span class="nav-toggle__bar"></span>
         </button>
-        <button class="theme-toggle" type="button" aria-pressed="false">
+        <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle dark mode">
           🌙 Dark mode
         </button>
-        <div class="nav-menu" id="nav-menu">
-          <a href="#services">Services</a>
-          <a href="#solutions">Solutions</a>
-          <a href="#about">About</a>
-          <a class="button button--outline" href="#contact">Contact</a>
-        </div>
+        <ul class="nav-menu" id="nav-menu" aria-label="Primary navigation">
+          <li><a href="#about">About</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#build">Build process</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="button button--outline" href="#contact">Contact</a></li>
+        </ul>
       </nav>
     </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero__content">
+    <main id="main-content">
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-title">
+        <header class="hero__content">
           <p class="eyebrow">Marketing systems for rural growth</p>
-          <h1>Better client connections powered by AI workflows and customer focused websites.</h1>
+          <h1 id="hero-title">Better client connections powered by AI workflows and customer focused websites.</h1>
           <p class="lead">
             Southern Arizona Marketing Systems helps rural businesses build
             smarter pipelines with AI agents, automated campaigns, and data-driven
@@ -53,22 +60,22 @@
             <a class="button" href="#contact">Email us to get started</a>
             <a class="button button--ghost" href="#services">Explore services</a>
           </div>
-          <div class="hero__stats">
-            <div>
+          <ul class="hero__stats">
+            <li>
               <strong>30+ hrs</strong>
-              <span>saved monthly</span>
-            </div>
-            <div>
+              <span>Saved Monthly</span>
+            </li>
+            <li>
               <strong>3x</strong>
-              <span>client response rates</span>
-            </div>
-            <div>
+              <span>Client Response Rates</span>
+            </li>
+            <li>
               <strong>100%</strong>
-              <span>tailored to rural markets</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero__card">
+              <span>Tailored to Rural Markets</span>
+            </li>
+          </ul>
+        </header>
+        <aside class="hero__card">
           <h2>Workflow snapshot</h2>
           <ul>
             <li>Lead capture → auto qualification</li>
@@ -76,35 +83,44 @@
             <li>Website + email optimization insights</li>
             <li>Reporting dashboard with next steps</li>
           </ul>
-        </div>
+        </aside>
       </section>
 
-      <section class="section" id="services">
-        <div class="section__header">
-          <h2>Services</h2>
-          <p>Full-funnel support that keeps your team focused on relationships.</p>
-        </div>
-        <div class="grid">
-          <article class="card">
-            <h3>AI Agent Playbooks</h3>
-            <p>Design and deploy AI agents that qualify leads and schedule calls.</p>
-          </article>
-          <article class="card">
-            <h3>Website Optimization</h3>
-            <p>Modernize messaging, improve conversion paths, and track outcomes.</p>
-          </article>
-          <article class="card">
-            <h3>Email & Social Campaigns</h3>
-            <p>Automated sequences tailored to your audiences and rural markets.</p>
-          </article>
-        </div>
+      <!-- About -->
+      <section class="section" id="about" aria-labelledby="about-title">
+        <header class="section__header">
+          <h2 id="about-title">About Southern Arizona Marketing Systems</h2>
+          <p>
+            We combine AI automation with practical marketing execution so rural
+            businesses can compete and thrive. Co-founders Aidyn and Micka are
+            siblings who bring complementary strengths: Aidyn is a 15-year-old
+            entrepreneur, and Micka is a Cochise College graduate who studies
+            biomedical science at ASU. Together, they focus on measurable wins and
+            sustainable client relationships.
+          </p>
+        </header>
+        <ul class="metrics">
+          <li>
+            <h3>New venture</h3>
+            <p>Fresh Perspective for Modern Brands</p>
+          </li>
+          <li>
+            <h3>Youth-forward</h3>
+            <p>Campaigns that Resonate with Gen Z</p>
+          </li>
+          <li>
+            <h3>Community-led</h3>
+            <p>Social-first Engagement for Local Growth</p>
+          </li>
+        </ul>
       </section>
 
-      <section class="section section--alt" id="solutions">
-        <div class="section__header">
-          <h2>Solutions built for you</h2>
+      <!-- Solutions -->
+      <section class="section section--alt" id="solutions" aria-labelledby="solutions-title">
+        <header class="section__header">
+          <h2 id="solutions-title">Solutions built for you</h2>
           <p>From strategy to execution, we simplify your marketing stack.</p>
-        </div>
+        </header>
         <div class="grid grid--two">
           <article class="callout">
             <h3>Startup Launch</h3>
@@ -125,70 +141,227 @@
         </div>
       </section>
 
-      <section class="section" id="about">
-        <div class="section__header">
-          <h2>About Southern Arizona Marketing Systems</h2>
-          <p>
-            We combine AI automation with practical marketing execution so rural
-            businesses can compete and thrive. Co-founders Aidyn and Micka are
-            siblings who bring complementary strengths: Aidyn is a 15-year-old
-            entrepreneur, and Micka is a Cochise College graduate who studies
-            biomedical science at ASU. Together, they focus on measurable wins and
-            sustainable client relationships.
-          </p>
+      <!-- Services -->
+      <section class="section" id="services" aria-labelledby="services-title">
+        <header class="section__header">
+          <h2 id="services-title">Services</h2>
+          <p>Full-funnel support that keeps your team focused on relationships.</p>
+        </header>
+        <div class="grid">
+          <article class="card">
+            <h3>AI Agent Playbooks</h3>
+            <p>Design and deploy AI agents that qualify leads and schedule calls.</p>
+          </article>
+          <article class="card">
+            <h3>Website Optimization</h3>
+            <p>Modernize messaging, improve conversion paths, and track outcomes.</p>
+          </article>
+          <article class="card">
+            <h3>Email & Social Campaigns</h3>
+            <p>Automated sequences tailored to your audiences and rural markets.</p>
+          </article>
         </div>
-        <div class="metrics">
-          <div>
-            <h3>New venture</h3>
-            <p>fresh perspective for modern brands</p>
-          </div>
-          <div>
-            <h3>Youth-forward</h3>
-            <p>campaigns that resonate with Gen Z</p>
-          </div>
-          <div>
-            <h3>Community-led</h3>
-            <p>social-first engagement for local growth</p>
+        <div class="plans">
+          <header class="section__header section__header--compact">
+            <h3>Plans</h3>
+            <p>Flexible tiers that scale with your growth goals.</p>
+          </header>
+          <div class="plans__grid">
+            <article class="plan">
+              <header class="plan__header">
+                <h4>Basic</h4>
+                <p class="plan__price">
+                  <span>Website fee: $100</span>
+                  <span>Monthly fee: $50</span>
+                </p>
+              </header>
+              <ul class="plan__list">
+                <li>Monthly security updates</li>
+                <li>Domain hosting</li>
+                <li>Emergency fixes</li>
+                <li>1 hour of support per month</li>
+              </ul>
+            </article>
+            <article class="plan plan--featured">
+              <header class="plan__header">
+                <p class="plan__badge">Most popular</p>
+                <h4>Growth</h4>
+                <p class="plan__price">
+                  <span>Website fee: $125</span>
+                  <span>Monthly fee: $75</span>
+                </p>
+              </header>
+              <ul class="plan__list">
+                <li>Everything in Basic</li>
+                <li>Content updates</li>
+                <li>Basic SEO maintenance</li>
+                <li>Monthly analytics reports</li>
+                <li>3 hours of support per month</li>
+              </ul>
+            </article>
+            <article class="plan">
+              <header class="plan__header">
+                <h4>Full</h4>
+                <p class="plan__price">
+                  <span>Website fee: $150</span>
+                  <span>Monthly fee: $100</span>
+                </p>
+              </header>
+              <ul class="plan__list">
+                <li>Everything in Growth</li>
+                <li>Monthly social media analytics reports</li>
+                <li>Email marketing campaigns</li>
+                <li>Bi-weekly updates</li>
+                <li>Addition of AI assistant</li>
+                <li>6 hours of support monthly</li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
 
-      <section class="section section--accent" id="contact">
+      <!-- Process -->
+      <section class="section" id="process" aria-labelledby="process-title">
+        <header class="section__header">
+          <h2 id="process-title">Our process</h2>
+          <p>A simple, repeatable system to move from goals to measurable growth.</p>
+        </header>
+        <ol class="process">
+          <li>
+            <h3>Discover</h3>
+            <p>Clarify goals, audiences, and current bottlenecks.</p>
+          </li>
+          <li>
+            <h3>Design</h3>
+            <p>Build a tailored plan with AI workflows and messaging.</p>
+          </li>
+          <li>
+            <h3>Deploy</h3>
+            <p>Launch campaigns, websites, and automation.</p>
+          </li>
+          <li>
+            <h3>Optimize</h3>
+            <p>Measure results, refine, and scale what works.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- Build Process -->
+      <section class="section section--alt" id="build" aria-labelledby="build-title">
+        <header class="section__header">
+          <h2 id="build-title">How we build your marketing system</h2>
+          <p>A transparent, step-by-step build so you always know what comes next.</p>
+        </header>
+        <div class="timeline" role="list">
+          <article class="timeline__item" role="listitem">
+            <h3>1. Strategy workshop</h3>
+            <p>We align on goals, ideal clients, and the channels that matter most.</p>
+            <ul>
+              <li>Stakeholder interview</li>
+              <li>Competitive snapshot</li>
+              <li>Success metrics</li>
+            </ul>
+          </article>
+          <article class="timeline__item" role="listitem">
+            <h3>2. Experience design</h3>
+            <p>We map the customer journey and draft messaging that earns trust.</p>
+            <ul>
+              <li>Messaging pillars</li>
+              <li>Website wireframe</li>
+              <li>Lead capture plan</li>
+            </ul>
+          </article>
+          <article class="timeline__item" role="listitem">
+            <h3>3. Build & automation</h3>
+            <p>We implement the website, AI workflows, and integrations.</p>
+            <ul>
+              <li>Site build + SEO basics</li>
+              <li>Automation setup</li>
+              <li>Analytics dashboard</li>
+            </ul>
+          </article>
+          <article class="timeline__item" role="listitem">
+            <h3>4. Launch & optimize</h3>
+            <p>We go live, review results, and keep improving.</p>
+            <ul>
+              <li>Launch checklist</li>
+              <li>30-day review</li>
+              <li>Ongoing iteration</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section section--alt" id="faq" aria-labelledby="faq-title">
+        <header class="section__header">
+          <h2 id="faq-title">FAQ</h2>
+          <p>Quick answers to common questions.</p>
+        </header>
+        <div class="faq">
+          <details>
+            <summary>How quickly can we get started?</summary>
+            <p>Most projects start within 1–2 weeks after discovery and scope approval.</p>
+          </details>
+          <details>
+            <summary>Do you work with very small businesses?</summary>
+            <p>Yes. We focus on rural and local teams looking for practical, measurable wins.</p>
+          </details>
+          <details>
+            <summary>What tools do you use for automation?</summary>
+            <p>We select tools based on your needs and budget, prioritizing simplicity and ROI.</p>
+          </details>
+          <details>
+            <summary>Can you improve an existing website?</summary>
+            <p>Absolutely. We modernize messaging, UX, and conversion paths.</p>
+          </details>
+          <details>
+            <summary>What does the build process look like?</summary>
+            <p>We run a four-step build: strategy, experience design, build + automation, then launch with optimization.</p>
+          </details>
+          <details>
+            <summary>How do we measure success?</summary>
+            <p>We define key outcomes up front, then review metrics in monthly reports to refine the plan.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section section--accent" id="contact" aria-labelledby="contact-title">
         <div class="contact">
-          <div>
-            <h2>Let’s build your growth system</h2>
+          <article>
+            <h2 id="contact-title">Let’s build your growth system</h2>
             <p>
               Tell us about your goals. We’ll map a marketing system that fits your
               timeline and budget.
             </p>
-          </div>
-          <form class="contact__form" action="mailto:silva.marketing.freelanceandmore@gmail.com" method="post" enctype="text/plain">
-            <label>
-              Name
-              <input type="text" name="name" placeholder="Your name" required />
-            </label>
-            <label>
-              Email
-              <input type="email" name="email" placeholder="you@business.com" required />
-            </label>
-            <label>
-              Business goals
-              <textarea name="message" rows="4" placeholder="Share your goals"></textarea>
-            </label>
+          </article>
+          <form class="contact__form" action="mailto:silva.marketing.freelanceandmore@gmail.com" method="post" enctype="text/plain" aria-describedby="form-note form-status">
+            <label for="contact-name">Name</label>
+            <input id="contact-name" type="text" name="name" autocomplete="name" placeholder="Your name" required />
+            <label for="contact-email">Email</label>
+            <input id="contact-email" type="email" name="email" autocomplete="email" placeholder="you@business.com" required />
+            <label for="contact-message">Business goals</label>
+            <textarea id="contact-message" name="message" rows="4" placeholder="Share your goals"></textarea>
             <button class="button" type="submit">Send inquiry</button>
-            <p class="form-note">We’ll respond within two business days.</p>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            <p class="form-note" id="form-note">We’ll respond within two business days.</p>
           </form>
         </div>
       </section>
     </main>
 
+    <!-- Footer -->
     <footer class="site-footer">
       <p>© 2026 Southern Arizona Marketing Systems. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#services">Services</a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#about">About</a>
         <a href="#solutions">Solutions</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
-      </div>
+      </nav>
     </footer>
   </body>
 </html>
