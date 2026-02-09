@@ -1,0 +1,62 @@
+# .htaccess Configuration
+# Add this file to your root directory if using traditional hosting (NOT needed for Netlify/Vercel)
+
+# Enable Gzip Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Browser Caching
+<IfModule mod_expires.c>
+  ExpiresActive On
+  
+  # Images - Cache for 1 year
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  
+  # CSS and JavaScript - Cache for 1 year
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  
+  # HTML - No cache (always get latest)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Modern Cache-Control Headers
+<IfModule mod_headers.c>
+  # Security Headers
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "DENY"
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  
+  # Cache-Control for static assets (CSS, JS, images)
+  <FilesMatch "\.(css|js|png|jpg|jpeg|webp|gif|svg|ico|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  
+  # No cache for HTML files
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# Force HTTPS (only if you have SSL certificate installed)
+# Uncomment these lines after installing SSL
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>
+
+# Prevent directory browsing
+Options -Indexes
+
+# Default UTF-8 encoding
+AddDefaultCharset UTF-8
+
+# Custom error pages (optional - create these files if needed)
+# ErrorDocument 404 /404.html
+# ErrorDocument 500 /500.html

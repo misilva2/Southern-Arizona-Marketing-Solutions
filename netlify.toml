@@ -1,0 +1,72 @@
+# Netlify Configuration
+# This file optimizes your site when deployed to Netlify
+# Place this in your repository root
+
+[build]
+  # Your site is static HTML - no build needed
+  publish = "."
+
+# Headers for performance and security
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Enable HSTS (force HTTPS)
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# Cache static assets for 1 year
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Don't cache HTML (always get latest version)
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Redirect www to non-www (replace yourdomain.com with your actual domain)
+[[redirects]]
+  from = "https://www.yourdomain.com/*"
+  to = "https://yourdomain.com/:splat"
+  status = 301
+  force = true
+
+# Redirect http to https (Netlify does this automatically, but explicit is good)
+[[redirects]]
+  from = "http://yourdomain.com/*"
+  to = "https://yourdomain.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.yourdomain.com/*"
+  to = "https://yourdomain.com/:splat"
+  status = 301
+  force = true

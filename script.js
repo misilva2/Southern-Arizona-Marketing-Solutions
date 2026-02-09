@@ -79,3 +79,47 @@ if (themeToggle) {
     applyTheme(nextTheme);
   });
 }
+
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const revealItems = document.querySelectorAll(
+  ".hero, .hero__card, .section, .cta-banner, .timeline__item, .faq details, .site-footer"
+);
+
+revealItems.forEach((item) => item.classList.add("reveal"));
+
+if (!prefersReducedMotion && "IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
+
+const hero = document.querySelector(".hero");
+if (hero && !prefersReducedMotion) {
+  const updateHeroGlow = (event) => {
+    const rect = hero.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    hero.style.setProperty("--cursor-x", `${x}%`);
+    hero.style.setProperty("--cursor-y", `${y}%`);
+  };
+
+  hero.addEventListener("mousemove", updateHeroGlow);
+  hero.addEventListener("mouseleave", () => {
+    hero.style.setProperty("--cursor-x", "40%");
+    hero.style.setProperty("--cursor-y", "20%");
+  });
+}
+

@@ -1,0 +1,167 @@
+<!-- 
+  WebP Image Implementation Guide
+  ===============================
+  
+  After converting images to WebP format, replace your current <img> tags
+  with these <picture> elements for modern browsers while maintaining fallback.
+-->
+
+<!-- 
+  EXAMPLE 1: Logo in Navigation (Header)
+  Current line ~29 in index.html
+-->
+<picture>
+  <source srcset="images/IMG_1869.webp" type="image/webp">
+  <img 
+    class="brand__logo" 
+    src="images/IMG_1869.PNG" 
+    alt="Southern Arizona Marketing Systems logo" 
+    loading="eager" 
+    decoding="async" 
+    width="42" 
+    height="42" 
+  />
+</picture>
+
+<!-- 
+  EXAMPLE 2: Hero Section Logo
+  Current line ~56 in index.html
+-->
+<picture>
+  <source srcset="images/IMG_1869.webp" type="image/webp">
+  <img 
+    src="images/IMG_1869.PNG" 
+    alt="Southern Arizona Marketing Systems logo" 
+    loading="eager" 
+    decoding="async" 
+    width="78" 
+    height="78" 
+  />
+</picture>
+
+<!-- 
+  EXAMPLE 3: Footer Logo
+  Current line ~371 in index.html
+-->
+<picture>
+  <source srcset="images/IMG_1869.webp" type="image/webp">
+  <img 
+    src="images/IMG_1869.PNG" 
+    alt="Southern Arizona Marketing Systems logo" 
+    loading="lazy" 
+    decoding="async" 
+    width="46" 
+    height="46" 
+  />
+</picture>
+
+<!-- 
+  EXPLANATION:
+  ============
+  
+  The <picture> element works like this:
+  
+  1. Browser checks <source> elements first
+  2. If browser supports WebP, it loads the .webp version (smaller, faster)
+  3. If not, it falls back to the <img> src (PNG)
+  4. All img attributes (loading, decoding, dimensions) still work
+  
+  Benefits:
+  - 70% smaller file size for modern browsers
+  - Automatic fallback for older browsers
+  - Faster page loads
+  - Better mobile performance
+  
+  BROWSER SUPPORT:
+  - WebP: Chrome, Edge, Firefox, Safari (96%+ of users)
+  - PNG fallback: All browsers (100% of users)
+  
+  STEPS TO IMPLEMENT:
+  ===================
+  
+  1. Convert IMG_1869.PNG to WebP:
+     - Use https://squoosh.app/
+     - Upload IMG_1869.PNG
+     - Select WebP format, Quality: 85%
+     - Download as IMG_1869.webp
+     - Place in images/ folder
+  
+  2. Replace the 3 <img> tags in index.html with the <picture> elements above
+  
+  3. Test in your browser:
+     - Open DevTools (F12)
+     - Go to Network tab
+     - Reload page
+     - Look for IMG_1869.webp being loaded (not .PNG)
+  
+  4. Verify fallback works:
+     - Test in older browser or
+     - Temporarily rename IMG_1869.webp
+     - Should still load PNG version
+  
+  EXPECTED RESULTS:
+  =================
+  
+  Original PNG: ~150KB
+  WebP version: ~45KB (70% smaller)
+  
+  Page load improvement: 200-300ms faster
+  Mobile data saved: 105KB per page visit
+  PageSpeed score improvement: +5-10 points
+-->
+
+<!-- 
+  RESPONSIVE IMAGES (Optional Advanced)
+  =====================================
+  
+  For even better performance, you can serve different sized images
+  based on screen size:
+-->
+
+<picture>
+  <!-- WebP for large screens (desktop) -->
+  <source 
+    srcset="images/IMG_1869-large.webp" 
+    type="image/webp" 
+    media="(min-width: 768px)"
+  >
+  
+  <!-- WebP for small screens (mobile) -->
+  <source 
+    srcset="images/IMG_1869-small.webp" 
+    type="image/webp" 
+    media="(max-width: 767px)"
+  >
+  
+  <!-- PNG fallback for large screens -->
+  <source 
+    srcset="images/IMG_1869-large.PNG" 
+    media="(min-width: 768px)"
+  >
+  
+  <!-- PNG fallback for small screens -->
+  <source 
+    srcset="images/IMG_1869-small.PNG" 
+    media="(max-width: 767px)"
+  >
+  
+  <!-- Default fallback -->
+  <img 
+    src="images/IMG_1869.PNG" 
+    alt="Southern Arizona Marketing Systems logo" 
+    loading="lazy" 
+    decoding="async"
+  />
+</picture>
+
+<!--
+  This advanced approach requires creating multiple sizes:
+  - IMG_1869-large.webp (full size for desktop)
+  - IMG_1869-small.webp (smaller for mobile)
+  - IMG_1869-large.PNG (fallback for desktop)
+  - IMG_1869-small.PNG (fallback for mobile)
+  
+  Additional savings: 50-70% on mobile devices
+  
+  Only implement if you want maximum optimization!
+-->
